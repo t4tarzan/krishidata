@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#01696f">
+  <meta name="description" content="KrishiData — Field Data Collection Platform for agricultural and rural surveys">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>KrishiData — Field Data Collection</title>
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- PWA Manifest (inline) -->
+  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiS3Jpc2hpRGF0YSIsInNob3J0X25hbWUiOiJLcmlzaGlEYXRhIiwiZGVzY3JpcHRpb24iOiJGaWVsZCBEYXRhIENvbGxlY3Rpb24gUGxhdGZvcm0iLCJzdGFydF91cmwiOiIuLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiNmN2Y2ZjIiLCJ0aGVtZV9jb2xvciI6IiMwMTY5NmYiLCJpY29ucyI6W119">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+  <style>
+    /* Critical inline styles for initial load */
+    #app {
+      min-height: 100dvh;
+    }
+    .app-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100dvh;
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--color-text-muted);
+      background: var(--color-bg);
+    }
+    .app-loading .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid var(--color-divider);
+      border-top-color: var(--color-primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip to content -->
+  <a href="#main-content" class="sr-only" style="position:fixed;top:0;left:0;z-index:999;padding:8px 16px;background:var(--color-primary);color:white;text-decoration:none">Skip to content</a>
+
+  <!-- App root -->
+  <div id="app">
+    <div class="app-loading">
+      <div style="text-align:center">
+        <div class="spinner" style="margin:0 auto var(--space-4)"></div>
+        <p>Loading KrishiData...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast container (persists outside SPA re-renders) -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Application Script -->
+  <script src="./app.js" defer></script>
+</body>
+</html>
